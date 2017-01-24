@@ -1,5 +1,4 @@
-node {
-  allowedNodes(['remote-docker-slave'])
+node('remote-docker-slave') {
   
   stage 'Build'
     parallel (
