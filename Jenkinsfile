@@ -1,3 +1,5 @@
+job {
+  
 node('remote-docker-slave') {
   
   stage 'Build'
@@ -31,7 +33,10 @@ node('remote-docker-slave') {
         sh "sleep 7s"
       }
    )
+}
 
+node('remote-docker-slave') {
+  
   stage 'Deploy to Integration'
     echo 'Here goes some deployment script'
     sh "sleep 4s"
@@ -51,7 +56,9 @@ node('remote-docker-slave') {
         sh "sleep 2s"
       }
     )
-        
+}
+
+node('remote-docker-slave') {
   stage 'Canary release Phase 1'
     echo 'Here goes a deploy to a controled isolated server'
     sh "sleep 2s"
@@ -71,7 +78,9 @@ node('remote-docker-slave') {
         sh "sleep 4s"
       }
     )
-        
+}
+node('remote-docker-slave') {
+
   stage 'Canary release Phase 2'
     echo 'Here goes the switch off feature tougle'
     sh "sleep 4s"
@@ -90,4 +99,6 @@ node('remote-docker-slave') {
             
   stage 'Deployment complete'
     echo 'Send emails and be happy to have something deployed to production'
+}
+  
 }
