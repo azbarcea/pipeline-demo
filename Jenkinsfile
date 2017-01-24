@@ -1,4 +1,6 @@
 node {
+  allowedNodes(['remote-docker-slave'])
+  
   stage 'Build'
     parallel (
       "Unit Tests and Linting": {
